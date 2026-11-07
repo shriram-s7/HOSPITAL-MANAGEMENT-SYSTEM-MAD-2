@@ -1,0 +1,17 @@
+TERMINAL - 1:
+venv\Scripts\activate
+cd frontend
+npm install
+npm run dev
+
+TERMINAL - 2:
+venv\Scripts\activate
+cd backend
+python app.py
+
+TERMINAL - 3:
+venv\Scripts\activate
+IF WANT CELERY WORKER (BEST FOR DEMO):
+python -m celery -A celery_worker.celery worker --loglevel=info -P solo
+IF YOU WANT CELERY BEAT (LONGTIME APPLICATION RUN):
+python -m celery -A celery_worker.celery beat --loglevel=info

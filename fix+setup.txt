@@ -1,0 +1,53 @@
+FIX:
+# window.location.href = '/'
+apps = Appointment.query.filter_by(doctor_id=id).all()
+        for app in apps:
+            Treatment.query.filter_by(appointment_id=app.id).delete()
+            Appointment.query.filter_by(doctor_id=id).delete()
+
+
+TERMINAL COMMANDS FOR QUICK DISPLAY:
+
+venv\Scripts\activate
+cd frontend
+npm install
+npm run dev
+cd backend
+python app.py
+celery -A celery_worker.celery worker --loglevel=info -P solo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+celery -A celery_worker.celery beat --loglevel=info
